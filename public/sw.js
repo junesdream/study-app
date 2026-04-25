@@ -1,7 +1,7 @@
-self.addEventListener("install", (event) => {
+self.addEventListener("install", () => {
     self.skipWaiting();
 });
 
 self.addEventListener("activate", (event) => {
-    return self.clients.claim();
+    event.waitUntil(self.clients.claim());
 });
