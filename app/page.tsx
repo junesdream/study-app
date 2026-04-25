@@ -6,6 +6,8 @@ import { Day, Entry } from "@/types";
 import { buildWeeks } from "@/lib/helpers";
 import WeekSummary from "@/components/WeekSummary";
 import DayCard from "@/components/DayCard";
+import Heatmap from "@/components/Heatmap";
+import Analytics from "@/components/Analytics";
 
 export default function Home() {
     const [calendar, setCalendar] = useState<Day[]>(generateDays());
@@ -114,6 +116,9 @@ export default function Home() {
             >
                 Export / Print
             </button>
+
+            <Heatmap calendar={calendar} currentMonth={currentMonth} />
+            <Analytics calendar={calendar} currentMonth={currentMonth} />
 
             {/* Wochen Summary */}
             {weeks.map((week, i) => (
