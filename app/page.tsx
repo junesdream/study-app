@@ -12,10 +12,8 @@ import Analytics from "@/components/Analytics";
 export default function Home() {
 
     useEffect(() => {
-        if ("serviceWorker" in navigator) {
-            window.addEventListener("load", () => {
-                navigator.serviceWorker.register("/sw.js");
-            });
+        if (typeof window !== "undefined" && "serviceWorker" in navigator) {
+            navigator.serviceWorker.register("/sw.js", { scope: "/" });
         }
     }, []);
 
