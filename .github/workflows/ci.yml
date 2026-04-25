@@ -37,20 +37,3 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t study-app .
-
-  electron:
-    runs-on: macos-latest
-    needs: build
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - run: npm install
-
-      - run: npm run build
-
-      - run: npm run dist
