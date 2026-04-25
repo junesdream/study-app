@@ -17,6 +17,10 @@ export const metadata: Metadata = {
     description: "Study Planner",
     manifest: "/manifest.json",
     themeColor: "#00ff88",
+    icons: {
+        icon: "/icon-192.png",
+        apple: "/icon-192.png",
+    },
 };
 
 export default function RootLayout({
