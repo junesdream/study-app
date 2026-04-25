@@ -1,36 +1,153 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📚 Study App (Desktop)
 
-## Getting Started
+Minimal, offline-first Study Tracking App built with **Next.js + Electron**.
+Track your learning sessions, visualize progress, and keep your data fully private — no cloud required.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Framework-Next.js-black)
+![Electron](https://img.shields.io/badge/Desktop-Electron-blue)
+![License](https://img.shields.io/badge/license-Private-lightgrey)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## ✨ Features
+
+| Feature | Description |
+|---|---|
+| 📅 **Session Tracking** | Day-based study tracking with module entries and notes |
+| 📊 **Weekly Analytics** | Progress %, best/worst tracking, and heatmap visualization |
+| 🔒 **Privacy-First** | Fully local storage — no cloud, no tracking, no internet |
+| 💾 **Data Export** | JSON export for manual backup and print support |
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| **Frontend** | Next.js (App Router) |
+| **Desktop** | Electron |
+| **State** | React Hooks |
+| **Storage** | localStorage |
+| **Build** | electron-builder |
+
+---
+
+## 📂 Project Structure
+
+```
+/app
+/components
+/lib
+/types
+/public
+/electron.js
+/next.config.ts
+/package.json
+/out          → static build (generated)
+/dist         → desktop app (generated)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Getting Started
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Install dependencies
+```bash
+   npm install
+```
 
-## Learn More
+### Run Web (Dev)
+```bash
+   npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Run Desktop (Dev)
+```bash
+   npx electron .
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📦 Build
 
-## Deploy on Vercel
+### 1. Static Export
+```bash
+   npm run build
+```
+Generates `/out`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 2. Desktop App Build
+```bash
+   npm run dist
+```
+Generates `/dist`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Output Files
+
+| OS | File |
+|---|---|
+| macOS | `dist/Study App.dmg` |
+| Windows | `dist/Study App.exe` |
+
+---
+
+## 💡 Usage
+
+### Launch App
+- Install `.dmg` (macOS) or `.exe` (Windows)
+- Open **Study App**
+
+### Export Data
+- Click **Export** → downloads `study-backup.json`
+
+### Print
+- Click **Print** → opens system print dialog
+
+---
+
+## 🗄️ Data Storage
+
+Data is stored in `localStorage` (browser inside Electron).
+
+| Aspect | Status |
+|---|---|
+| Internet | ❌ None |
+| Cloud | ❌ None |
+| Tracking | ❌ None |
+| Local Only | ✅ Yes |
+
+> ⚠️ No auto backup, no sync, device-bound only.
+
+**Recommended backup strategy:** Export once per week and store on USB, cloud, or a local folder.
+
+---
+
+## 🔮 Future Improvements
+
+- IndexedDB instead of localStorage
+- Auto backup
+- Import feature
+- Dark / light theme toggle
+- Mobile version (PWA)
+
+---
+
+## ⚠️ Known Limitations
+
+- No multi-device sync
+- No database (localStorage only)
+- No authentication
+- No auto-save history
+
+---
+
+## 📄 License
+
+Private / Personal Use
+
+---
+
+## 👤 Author
+
+**June** ([@junesdream](https://github.com/junesdream))
+Full-Stack Development • AI Systems • Electronic Music
