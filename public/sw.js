@@ -1,3 +1,7 @@
-self.addEventListener("install", () => {
-    console.log("SW installed");
+self.addEventListener("install", (event) => {
+    self.skipWaiting();
+});
+
+self.addEventListener("activate", (event) => {
+    return self.clients.claim();
 });
