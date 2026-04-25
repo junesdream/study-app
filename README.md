@@ -143,7 +143,7 @@ Data is stored in `localStorage` (browser inside Electron).
 
 ## 📄 License
 
-Private / Personal Use
+Private / Personal-Use
 
 ---
 
