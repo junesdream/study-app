@@ -16,6 +16,7 @@ export default function DayCard({
                                 }: Props) {
     return (
         <div
+            className="card"
             style={{
                 border: "1px solid #00ff88",
                 padding: "12px",
@@ -70,8 +71,11 @@ export default function DayCard({
                     placeholder="Wochen-Review..."
                     style={{
                         width: "100%",
-                        minHeight: "120px",
-                        marginTop: "8px",
+                        minHeight: "60px",
+                        background: "#000",
+                        color: "#00ff88",
+                        border: "1px solid #00ff88",
+                        outline: "none"
                     }}
                     value={day.weekNote || ""}
                     onChange={(e) =>
@@ -95,6 +99,10 @@ export default function DayCard({
                             <label key={f}>
                                 <input
                                     type="checkbox"
+                                    style={{
+                                        accentColor: "#00ff88",
+                                        cursor: "pointer"
+                                    }}
                                     checked={entry[f] as boolean}
                                     onChange={(e) =>
                                         updateEntry(
@@ -116,6 +124,10 @@ export default function DayCard({
                         style={{
                             width: "100%",
                             minHeight: "60px",
+                            background: "#000",
+                            color: "#00ff88",
+                            border: "1px solid #00ff88",
+                            outline: "none"
                         }}
                         value={entry.note}
                         onChange={(e) =>

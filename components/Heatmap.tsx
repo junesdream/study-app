@@ -40,6 +40,7 @@ export default function Heatmap({ calendar, currentMonth }: Props) {
                     return (
                         <div
                             key={i}
+                            className="heat-cell"
                             title={`${day.weekday} ${dateStr} → ${p}%`}
                             style={{
                                 width: "100%",

@@ -10,6 +10,13 @@ import Heatmap from "@/components/Heatmap";
 import Analytics from "@/components/Analytics";
 
 export default function Home() {
+
+    useEffect(() => {
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("/sw.js");
+        }
+    }, []);
+
     const [calendar, setCalendar] = useState<Day[]>(generateDays());
     const [currentMonth, setCurrentMonth] = useState(2);
 

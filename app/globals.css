@@ -73,3 +73,28 @@ input, textarea {
 textarea {
     resize: vertical;
 }
+
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 6px #00ff88; }
+    50% { box-shadow: 0 0 16px #00ff88; }
+    100% { box-shadow: 0 0 6px #00ff88; }
+}
+
+.card {
+    animation: glowPulse 2.5s infinite;
+    transition: all 0.2s ease;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px #00ff88;
+    border-color: #00ffaa;
+}
+
+.heat-cell {
+    transition: transform 0.2s;
+}
+
+.heat-cell:hover {
+    transform: scale(1.4);
+}
