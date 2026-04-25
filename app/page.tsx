@@ -44,6 +44,25 @@ export default function Home() {
 
     /* ===================== UPDATE ===================== */
 
+    const handleExport = () => {
+        const data = localStorage.getItem("calendar");
+
+        if (!data) {
+            alert("Keine Daten vorhanden");
+            return;
+        }
+
+        const blob = new Blob([data], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "study-backup.json";
+        a.click();
+
+        URL.revokeObjectURL(url);
+    };
+
     const updateEntry = (
         day: Day,
         entry: Entry,
@@ -110,19 +129,34 @@ export default function Home() {
                 <button onClick={() => setCurrentMonth((m) => m + 1)}>▶</button>
             </div>
 
-            {/* Print */}
-            <button
-                onClick={() => window.print()}
-                style={{
-                    marginBottom: "12px",
-                    padding: "6px 12px",
-                    background: "#00ff88",
-                    color: "black",
-                    border: "none",
-                }}
-            >
-                Export / Print
-            </button>
+            {/* Export / Print */}
+            <div style={{ marginBottom: "12px", display: "flex", gap: "10px" }}>
+                <button
+                    onClick={handleExport}
+                    type="button"
+                    style={{
+                        padding: "6px 12px",
+                        background: "#00ff88",
+                        color: "black",
+                        border: "none",
+                    }}
+                >
+                    Export
+                </button>
+
+                <button
+                    onClick={() => window.print()}
+                    type="button"
+                    style={{
+                        padding: "6px 12px",
+                        background: "#00ff88",
+                        color: "black",
+                        border: "none",
+                    }}
+                >
+                    Print
+                </button>
+            </div>
 
             <Heatmap calendar={calendar} currentMonth={currentMonth} />
             <Analytics calendar={calendar} currentMonth={currentMonth} />
